@@ -5,13 +5,14 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
+scalacOptions += "-language:implicitConversions"
+
 scalaVersion := "2.13.1"
 
 libraryDependencies += guice
+
+libraryDependencies += "org.typelevel" %% "cats-core" % "2.0.0"
+libraryDependencies += "org.typelevel" %% "mouse" % "0.24"
+
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
-
-// Adds additional packages into Twirl
-//TwirlKeys.templateImports += "dev.matthewbrown.controllers._"
-
-// Adds additional packages into conf/routes
-// play.sbt.routes.RoutesKeys.routesImport += "dev.matthewbrown.binders._"
+libraryDependencies += "org.scalamock" %% "scalamock" % "4.4.0" % Test
